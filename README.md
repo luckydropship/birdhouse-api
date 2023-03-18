@@ -24,11 +24,24 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This backend api is set up to run with a mysql database therefore Create a MySql database. 
 
 ## Installation
 
+
+ There is no need to populate the database with any seed data or fields as type orm should automatically handle this when you run the api.
+
+ Once your database is up and running - populate the app.module.ts file with your database setup information(type, host, port, username, database, password).
+ 
+ Save the app.module.ts file then Run npm install to install all dev dependencies/ node modules
+
+ Npm run start:dev  to get the api running
+
+ It is currently set to run on port 4260
+
+
 ```bash
+ set
 $ npm install
 ```
 
@@ -58,16 +71,3 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
