@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: birdhouses
+spec:
+   selector:
+     matchLabels:
+       app: birdhouses
+   replicas:
+   template:
+     metadata:  
+       labels:
+         app: birdhouses  
+     spec:
+       containers:
+         - name:  birdhouses
+           image: luckymubeti/birdhouses
+           ports:
+               - containerPort: 3306
+
