@@ -1,8 +1,9 @@
-import { Controller,Get, Post , Delete, Patch,Body, Param, ParseIntPipe, UsePipes, ValidationPipe} from '@nestjs/common';
+import { Controller,Get, Post , Delete, Patch,Body, Param, ParseIntPipe, UsePipes, ValidationPipe, UseGuards} from '@nestjs/common';
 import { addResidency } from 'src/birdhouses/dtos/AddResidency.dto';
 import { createBirdhouseDto } from 'src/birdhouses/dtos/CreateBirdhouse.dto';
 import { getBirdhouseDto } from 'src/birdhouses/dtos/GetBirdhouse.dto';
 import { updateBirdhouseDto } from 'src/birdhouses/dtos/UpdateBirdhouse.dto';
+import { AuthGuard } from 'src/birdhouses/guards/auth/auth.guard';
 import { BirdhousesService } from 'src/birdhouses/services/birdhouses/birdhouses.service';
 
 @Controller('house')
@@ -23,6 +24,7 @@ export class BirdhousesController {
     
     //endpoint for getting all the birdhouses as a list
     @Get('')
+    @UseGuards(AuthGuard)
     getAllBirdhouses() {
         return this.birdhousesService.listBirdhouses()
 
