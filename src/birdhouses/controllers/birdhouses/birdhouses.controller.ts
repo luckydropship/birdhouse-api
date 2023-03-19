@@ -1,4 +1,4 @@
-import { Controller,Get, Post , Delete, Patch,Body, Param, ParseIntPipe, UsePipes, ValidationPipe, UseGuards} from '@nestjs/common';
+import { Controller,Get, Post , Delete, Patch,Body, Param, UsePipes, ValidationPipe, UseGuards} from '@nestjs/common';
 import { addResidency } from 'src/birdhouses/dtos/AddResidency.dto';
 import { createBirdhouseDto } from 'src/birdhouses/dtos/CreateBirdhouse.dto';
 import { getBirdhouseDto } from 'src/birdhouses/dtos/GetBirdhouse.dto';
@@ -15,8 +15,9 @@ export class BirdhousesController {
     
     //enpoint parameter for getting a single birdhouse by id
     @Get(':id')
+    @UseGuards(AuthGuard)
     async getBirdhouses(
-        @Param('id', ParseIntPipe) id: string,
+        @Param('id') id: string,
         @Body() getBirdhousedto: getBirdhouseDto) {
         return this.birdhousesService.findBirdhouses( id)
 
@@ -42,7 +43,7 @@ export class BirdhousesController {
     //endpoint for updating/ making changes to the birdhouses
     @Patch(':id')
     async updateBirdhouseById(
-        @Param('id', ParseIntPipe) id: string,
+        @Param('id') id: string,
         @Body() updateBirdhouseDto: updateBirdhouseDto) {
         await this.birdhousesService.updateBirdhouse(id, updateBirdhouseDto)
          
@@ -52,7 +53,7 @@ export class BirdhousesController {
     //endpoint to add to residency
     @Post(':id/residency')
     createResidency(
-        @Param('id', ParseIntPipe) id: string,
+        @Param('id') id: string,
         @Body() addResidiencyDto: addResidency) {
         this.birdhousesService.createResidence(id, addResidiencyDto)
         
@@ -60,7 +61,7 @@ export class BirdhousesController {
 
     @Delete(':id')
     async deleteBirdhouseById(
-        @Param('id', ParseIntPipe) id: string) {
+        @Param('id') id: string) {
         await this.birdhousesService.deleteBirdhouse(id)
          
     }
