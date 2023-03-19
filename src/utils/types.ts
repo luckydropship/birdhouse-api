@@ -7,6 +7,8 @@ export type CreateBirdhouseParams = {
     latitude: number;
 
     name: string ;
+
+    created_at: Date;
 }
 
 export type UpdateBirdhouseParams = {
@@ -33,6 +35,8 @@ export type addResidencyParams = {
     latitude: number;
 
     name: string ;
+
+    created_at: Date;
 }
 
 export type findBirdhouseParams = {
@@ -46,4 +50,6 @@ export type findBirdhouseParams = {
     latitude: number;
 
     name: string ;
+
+    created_at: Date;
 }

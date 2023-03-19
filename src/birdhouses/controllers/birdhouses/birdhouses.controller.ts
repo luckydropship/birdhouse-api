@@ -15,7 +15,7 @@ export class BirdhousesController {
     //enpoint parameter for getting a single birdhouse by id
     @Get(':id')
     async getBirdhouses(
-        @Param('id', ParseIntPipe) id: number,
+        @Param('id', ParseIntPipe) id: string,
         @Body() getBirdhousedto: getBirdhouseDto) {
         return this.birdhousesService.findBirdhouses( id)
 
@@ -40,7 +40,7 @@ export class BirdhousesController {
     //endpoint for updating/ making changes to the birdhouses
     @Patch(':id')
     async updateBirdhouseById(
-        @Param('id', ParseIntPipe) id: number,
+        @Param('id', ParseIntPipe) id: string,
         @Body() updateBirdhouseDto: updateBirdhouseDto) {
         await this.birdhousesService.updateBirdhouse(id, updateBirdhouseDto)
          
@@ -50,7 +50,7 @@ export class BirdhousesController {
     //endpoint to add to residency
     @Post(':id/residency')
     createResidency(
-        @Param('id', ParseIntPipe) id: number,
+        @Param('id', ParseIntPipe) id: string,
         @Body() addResidiencyDto: addResidency) {
         this.birdhousesService.createResidence(id, addResidiencyDto)
         
@@ -58,7 +58,7 @@ export class BirdhousesController {
 
     @Delete(':id')
     async deleteBirdhouseById(
-        @Param('id', ParseIntPipe) id: number) {
+        @Param('id', ParseIntPipe) id: string) {
         await this.birdhousesService.deleteBirdhouse(id)
          
     }

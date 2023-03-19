@@ -15,4 +15,7 @@ export class createBirdhouseDto {
 
     @IsNotEmpty()
     name: string ;
+
+
+    created_at: Date;
 }

@@ -16,7 +16,7 @@ export class BirdhousesService {
 
     }
 
-    findBirdhouses(id: number){
+    findBirdhouses(id: string){
        
        return this.birdhouseRepository.findOneBy({id})
 
@@ -28,19 +28,19 @@ export class BirdhousesService {
 
     }
 
-    updateBirdhouse(id: number, updateBirdhouseDetails: UpdateBirdhouseParams){
+    updateBirdhouse(id: string, updateBirdhouseDetails: UpdateBirdhouseParams){
        
         return this.birdhouseRepository.update({ id }, {...updateBirdhouseDetails})
 
     }
 
-    createResidence(id: number, residencyDetails: findBirdhouseParams ){
+    createResidence(id: string, residencyDetails: findBirdhouseParams ){
         return this.birdhouseRepository.create({ id }), ({...residencyDetails})
         
 
     }
 
-    deleteBirdhouse(id: number){
+    deleteBirdhouse(id: string){
        
         return this.birdhouseRepository.delete({ id })
 
